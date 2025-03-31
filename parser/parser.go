@@ -72,6 +72,7 @@ func New(l *lexer.Lexer) *Parser {
 	p.registerPrefix(token.TRUE, p.parseBoolean)
 	p.registerPrefix(token.FALSE, p.parseBoolean)
 	p.registerPrefix(token.LPAREN, p.parseGroupExpression)
+  p.registerPrefix(token.LBRACE, p.parseBlockStatement)
 
 	p.infixParserFns = make(map[token.TokenType]infixParserFn)
 	p.registerInfix(token.PLUS, p.parseInfixExpression)
@@ -196,6 +197,20 @@ func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
 	}
 
 	return stmt
+}
+
+func (p *Parser) parseBlockStatement() ast.Expression {
+  p.nextToken() // Skip the open brace {
+  block := &ast.Block{}
+  block.Statements = []ast.Statement{}
+
+  for p.curToken.Type != token.RBRACE {
+	stmt := p.parseStatement()
+	block.Statements = append(block.Statements, stmt)
+	p.nextToken()
+  }
+  p.nextToken() // Skip then clossing brace }
+  return block
 }
 
 func (p *Parser) parseBoolean() ast.Expression {
