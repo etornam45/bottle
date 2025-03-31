@@ -1,9 +1,7 @@
 let name = "Hello, Benjamin Etornam";
 
-fn Greater(name) {
-  print("Hello, " + name);
-}
+let PI = 3.142;
 
-fn add(x, y) {
-  return x + y;
-}
+let height = PI / 3 + 87 * 77;
+
+return "hello";
