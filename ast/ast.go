@@ -201,6 +201,23 @@ func (b *Block) String () string {
   return out.String()
 }
 
+type ArrayLiteral struct {
+  Elements []Expression
+}
 
+func (al *ArrayLiteral) expressionNode() {} 
+func (al *ArrayLiteral) TokenLiteral() string { return al.Elements[0].TokenLiteral() }
+func (al *ArrayLiteral) String() string {
+  var out bytes.Buffer
+  out.WriteString("[")
+  for i , el := range al.Elements {
+    out.WriteString(el.String())
+    if i != (len(al.Elements) - 1 ) {
+      out.WriteString(",")
+    }
+  }
+  out.WriteString("]")
+  return out.String()
+}
 
 
