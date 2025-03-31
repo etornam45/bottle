@@ -4,7 +4,7 @@ let PI = 3.142;
 
 let height = PI / 3 + 87 * 77;
 
-return "hello";
+let arr = [3, 4, 67, 88, 10, 15];
 
 let block = {
   let nested = {
