@@ -182,3 +182,25 @@ type Boolean struct {
 func (bl *Boolean) expressionNode()      {}
 func (bl *Boolean) TokenLiteral() string { return bl.Token.Literal }
 func (bl *Boolean) String() string       { return bl.Token.Literal }
+
+
+type Block struct {
+  Statements []Statement
+}
+
+func (b *Block) expressionNode() {}
+func (b *Block) TokenLiteral() string { return b.Statements[0].TokenLiteral() }
+func (b *Block) String () string {
+  var out bytes.Buffer
+  out.WriteString("{\n")
+  for _, s := range b.Statements {
+    out.WriteString("\t" + s.String())
+    out.WriteString("\n")
+  }
+  out.WriteString("}")
+  return out.String()
+}
+
+
+
+
