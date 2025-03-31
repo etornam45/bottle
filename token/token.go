@@ -7,13 +7,13 @@ type Token struct {
 	Literal string
 }
 
-const (
+ const (
 	ILLEGAL = "ILLEGAL"
 
 	// Identifiers + literals
 	IDENT = "IDENT"
 	INT   = "INT"
-
+  STR   = "STR"
 	// Operators
 	ASSIGN   = "="
 	PLUS     = "+"
