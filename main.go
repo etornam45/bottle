@@ -14,13 +14,15 @@ func main() {
 	if err != nil {
 		println(err)
 	}
-	filename := os.Args[1]
-	code, err := os.ReadFile(filename)
-	if len(os.Args) > 1 {
-		exec.Run(string(code))
-	} else {
-
+	if len(os.Args) <= 1 {
 		fmt.Printf("Hello %s, this is the Bottle language!\n", user.Username)
 		repl.Start(os.Stdin, os.Stdout)
+	} else {
+		filename := os.Args[1]
+		code, err := os.ReadFile(filename)
+		if err != nil {
+			panic(err)
+		}
+		exec.Run(string(code))
 	}
 }
