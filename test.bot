@@ -5,3 +5,12 @@ let PI = 3.142;
 let height = PI / 3 + 87 * 77;
 
 return "hello";
+
+let block = {
+  let nested = {
+    let x = 34;
+    let y = 88;
+    return x * y;
+  };
+  return 45 / nested;
+};
