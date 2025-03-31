@@ -177,8 +177,9 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 		return nil
 	}
 
+  p.nextToken() // to skip =
 	// TODO: We're skipping the expression side
-	//stmt.Value = p.parseExpression(LOWEST)
+	stmt.Value = p.parseExpression(LOWEST) 
 
 	for !p.curTokenIs(token.SEMICOLON) {
 		p.nextToken()
