@@ -1,0 +1,9 @@
+let name = "Hello, Benjamin Etornam";
+
+fn Greater(name) {
+  print("Hello, " + name);
+}
+
+fn add(x, y) {
+  return x + y;
+}

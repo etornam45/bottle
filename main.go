@@ -1,5 +1,5 @@
 package main
- 
+
 import (
 	"fmt"
 	"os"
@@ -14,6 +14,6 @@ func main() {
 		println(err)
 	}
 
-	fmt.Printf("Hello %s, this is the Polygon language!\n", user.Username)
-	repl.Start(os.Stdin, os.Stdout) 
+	fmt.Printf("Hello %s, this is the Bottle language!\n", user.Username)
+	repl.Start(os.Stdin, os.Stdout)
 }
